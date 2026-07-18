@@ -92,7 +92,7 @@ func Redirect2OpenlistLink(c *gin.Context) {
 	}
 
 	// 4 如果是远程地址 (strm), 重定向处理
-	if urls.IsRemote(embyPath) {
+	if urls.IsHttpRemote(embyPath) {
 		finalPath := config.C.Emby.Strm.MapPath(embyPath)
 		finalPath = getFinalRedirectLink(finalPath, c.Request.Header.Clone())
 		logs.Success("重定向 strm: %s", finalPath)
