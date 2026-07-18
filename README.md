@@ -5,8 +5,8 @@
 <h1 align="center">go-emby2openlist</h1>
 
 <div align="center">
-  <a href="https://github.com/AmbitiousJun/go-emby2openlist/tree/v2.8.0"><img src="https://img.shields.io/github/v/tag/AmbitiousJun/go-emby2openlist"></img></a>
-  <a href="https://hub.docker.com/r/ambitiousjun/go-emby2openlist/tags"><img src="https://img.shields.io/docker/image-size/ambitiousjun/go-emby2openlist/v2.8.0"></img></a>
+  <a href="https://github.com/AmbitiousJun/go-emby2openlist/tree/v2.8.1"><img src="https://img.shields.io/github/v/tag/AmbitiousJun/go-emby2openlist"></img></a>
+  <a href="https://hub.docker.com/r/ambitiousjun/go-emby2openlist/tags"><img src="https://img.shields.io/docker/image-size/ambitiousjun/go-emby2openlist/v2.8.1"></img></a>
   <a href="https://hub.docker.com/r/ambitiousjun/go-emby2openlist/tags"><img src="https://img.shields.io/docker/pulls/ambitiousjun/go-emby2openlist"></img></a>
   <a href="https://github.com/AmbitiousJun/go-emby2openlist/releases/latest"><img src="https://img.shields.io/github/downloads/AmbitiousJun/go-emby2openlist/total"></img></a>
   <a href="https://goreportcard.com/report/github.com/AmbitiousJun/go-emby2openlist/v2"><img src="https://goreportcard.com/badge/github.com/AmbitiousJun/go-emby2openlist/v2"></img></a>
@@ -161,7 +161,7 @@
 1. 获取代码
 
 ```shell
-git clone --branch v2.8.0 --depth 1 https://github.tbedu.top/https://github.com/AmbitiousJun/go-emby2openlist
+git clone --branch v2.8.1 --depth 1 https://github.tbedu.top/https://github.com/AmbitiousJun/go-emby2openlist
 cd go-emby2openlist
 ```
 
@@ -234,7 +234,7 @@ docker image prune -f
 
 > 示例配置为完整版配置，首次部署可以参照[核心配置](https://github.com/AmbitiousJun/go-emby2openlist/issues/108#issuecomment-2928599051)优先跑通程序，再按需补充其他配置
 
-参考[示例配置](https://github.com/AmbitiousJun/go-emby2openlist/blob/v2.8.0/config-example.yml)，配置好自己的服务器信息，保存并命名为 `config.yml`
+参考[示例配置](https://github.com/AmbitiousJun/go-emby2openlist/blob/v2.8.1/config-example.yml)，配置好自己的服务器信息，保存并命名为 `config.yml`
 
 2. 创建 docker-compose 文件
 
@@ -244,7 +244,7 @@ docker image prune -f
 version: "3.1"
 services:
   go-emby2openlist:
-    image: ambitiousjun/go-emby2openlist:v2.8.0
+    image: ambitiousjun/go-emby2openlist:v2.8.1
     environment:
       - TZ=Asia/Shanghai
       - GIN_MODE=release
@@ -427,8 +427,6 @@ docker-compose up -d --build
 1. 为了保持 10MB 大小的精简 Docker 镜像，ffmpeg 默认不会被添加到镜像中。首次将 `openlist.local-tree-gen.ffmpeg-enable` 配置设置为 `true` 并运行容器后，程序会自动初始化 ffmpeg 环境，请耐心等待下载完成，中途不要停止容器
 2. 当检测出远程文件容器不在上述所说的三种生成方式任何一种之中时，程序的默认行为是将源文件下载到本地。比如在上述的例子中没有配置 `nfo` 文件格式，则远程的 `nfo` 文件会原封不动保存下载到本地。所以在使用本功能前请确认好所有的媒体大文件格式全都已经配置到了上述三种生成方式中
 
-
-
 ## 开放 API
 
 ### 手动更新本地目录树
@@ -453,11 +451,11 @@ POST /ge2o/openlist/local_tree/update
 
 #### 📌 参数说明
 
-| 参数名  | 类型    | 必填 | 说明                                                         |
-| ------- | ------- | ---- | ------------------------------------------------------------ |
-| secret  | string  | ✅    | 接口密钥，用于身份校验，可在 config.yaml 中自定义配置        |
+| 参数名  | 类型    | 必填 | 说明                                                                                                                                               |
+| ------- | ------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| secret  | string  | ✅   | 接口密钥，用于身份校验，可在 config.yaml 中自定义配置                                                                                              |
 | prefix  | string  |      | 需要更新的数据路径前缀（注：前缀必须子目录完整，比如有资源 `/A/B (2026)/C.mp4`，配置为 `/A/B` 是无法更新到的，需要配置为 `/A` 或者 `/A/B (2026)`） |
-| refresh | boolean |      | 是否强制刷新 OpenList 数据（默认 false）                     |
+| refresh | boolean |      | 是否强制刷新 OpenList 数据（默认 false）                                                                                                           |
 
 #### 📤 响应结果
 
