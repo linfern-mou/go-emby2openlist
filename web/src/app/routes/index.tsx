@@ -37,12 +37,6 @@ export default function Index() {
         >
           <img src="https://img.shields.io/github/downloads/AmbitiousJun/go-emby2openlist/total"></img>
         </a>
-        <a
-          href="https://goreportcard.com/report/github.com/AmbitiousJun/go-emby2openlist/v2"
-          target="_blank"
-        >
-          <img src="https://goreportcard.com/badge/github.com/AmbitiousJun/go-emby2openlist/v2"></img>
-        </a>
         <img src="https://img.shields.io/github/stars/AmbitiousJun/go-emby2openlist"></img>
         <img src="https://img.shields.io/github/license/AmbitiousJun/go-emby2openlist"></img>
       </div>

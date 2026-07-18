@@ -9,7 +9,6 @@
   <a href="https://hub.docker.com/r/ambitiousjun/go-emby2openlist/tags"><img src="https://img.shields.io/docker/image-size/ambitiousjun/go-emby2openlist/v2.8.1"></img></a>
   <a href="https://hub.docker.com/r/ambitiousjun/go-emby2openlist/tags"><img src="https://img.shields.io/docker/pulls/ambitiousjun/go-emby2openlist"></img></a>
   <a href="https://github.com/AmbitiousJun/go-emby2openlist/releases/latest"><img src="https://img.shields.io/github/downloads/AmbitiousJun/go-emby2openlist/total"></img></a>
-  <a href="https://goreportcard.com/report/github.com/AmbitiousJun/go-emby2openlist/v2"><img src="https://goreportcard.com/badge/github.com/AmbitiousJun/go-emby2openlist/v2"></img></a>
   <img src="https://img.shields.io/github/stars/AmbitiousJun/go-emby2openlist"></img>
   <img src="https://img.shields.io/github/license/AmbitiousJun/go-emby2openlist"></img>
 </div>
