@@ -111,11 +111,21 @@ func (e *Emby) Init() error {
 
 // IsLocalMediaPath 判断路径是否为本地媒体路径
 func (e *Emby) IsLocalMediaPath(p string) bool {
+	// 根据配置文件中的本地文件进行判定
 	for _, root := range e.LocalMediaRoots {
 		if strings.HasPrefix(p, root) {
 			return true
 		}
 	}
+
+	// 根据路径前缀判定是否是网络共享
+	sharedPrefixes := []string{"smb://", "//"}
+	for _, prefix := range sharedPrefixes {
+		if strings.HasPrefix(p, prefix) {
+			return true
+		}
+	}
+
 	return false
 }
 

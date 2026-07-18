@@ -18,6 +18,15 @@ func IsRemote(path string) bool {
 	return u.Host != ""
 }
 
+// IsHttpRemote 检查一个地址是否是远程地址
+func IsHttpRemote(path string) bool {
+	u, err := url.Parse(path)
+	if err != nil {
+		return false
+	}
+	return u.Host != "" && strings.HasPrefix(u.Scheme, "http")
+}
+
 // TransferSlash 将传递的路径的斜杠转换为正斜杠
 //
 // 如果传递的参数不是一个路径, 不作任何处理
